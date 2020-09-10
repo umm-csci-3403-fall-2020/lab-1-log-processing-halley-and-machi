@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 
-dir=$(pwd)
 cd "$1"
 
 cat country_dist.html hours_dist.html username_dist.html > htmlfiles.html
