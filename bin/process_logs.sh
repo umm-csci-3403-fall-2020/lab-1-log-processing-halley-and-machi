@@ -6,9 +6,11 @@ dir=$(mktemp -d tmpXXX)
 for var in "$@"
 do
 	name=$(basename "$var" .tgz)
-	cd "$dir" 
+	cd "$dir" || exit
 	mkdir "$name"
-        cd .. 	
+        (
+	cd .. 	
+        )
 	tar -zxf "$var" -C "$dir"/"$name" 
 	./bin/process_client_logs.sh "$dir"/"$name"
 done
